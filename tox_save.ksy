@@ -7,7 +7,7 @@ doc: |
 
 meta:
   id: tox_save
-  license: CC0-1.0
+  license: GPL-3.0
   ks-version: 0.9
   endian: le
 
