@@ -28,9 +28,21 @@ def json_serialiser(byte_obj):
 
 for state in save.states:
     print(state.type)
+    binary_file = open("./tox_dump." + str(state.type).split(".")[1] + ".dat", "wb")
+    if (type(state.data) == bytes):
+        binary_file.write(state.data)
+    else:
+        if (type(state.data) != ToxSave.StateName):
+            binary_file.write(state.data.pack)
+        else:
+            binary_file.write(state._raw_data)
+    binary_file.close()
+
     if state.type == ToxSave.StateType.groups:
-        binary_file = open("./tox_save.groups.dat", "wb")
-        binary_file.write(state.data.pack)
-        binary_file.close()
-        unpacked_save = msgpack.unpackb(state.data.pack, raw=False)
-        print(json.dumps(unpacked_save, default=json_serialiser, indent=2))
+        try:
+            unpacked_save = msgpack.unpackb(state.data.pack, raw=False)
+            print(json.dumps(unpacked_save, default=json_serialiser, indent=2))
+        except:
+            print("Error with group unpacking")
+
+
