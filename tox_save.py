@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
+# Copyright https://github.com/Green-Sky
+#
 # This is a generated file! Please edit source .ksy file and use kaitai-struct-compiler to rebuild
 #
 from pkg_resources import parse_version

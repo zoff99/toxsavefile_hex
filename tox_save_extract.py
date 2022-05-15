@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
+# Copyright https://github.com/Green-Sky
 #
 from tox_save import ToxSave
 import msgpack
