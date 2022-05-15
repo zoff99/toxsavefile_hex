@@ -1,10 +1,5 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-#
-# Copyright https://github.com/Green-Sky
-#
 # This is a generated file! Please edit source .ksy file and use kaitai-struct-compiler to rebuild
-#
+
 from pkg_resources import parse_version
 import kaitaistruct
 from kaitaistruct import KaitaiStruct, KaitaiStream, BytesIO
@@ -15,7 +10,10 @@ if parse_version(kaitaistruct.__version__) < parse_version('0.9'):
     raise Exception("Incompatible Kaitai Struct Python API: 0.9 or later is required, but you have %s" % (kaitaistruct.__version__))
 
 class ToxSave(KaitaiStruct):
-    """Toxcore save file parser (wip)
+    """
+    Toxcore save file parser (wip)
+    
+    Copyright https://github.com/Green-Sky
     """
 
     class StateType(Enum):
@@ -95,5 +93,6 @@ class ToxSave(KaitaiStruct):
 
         def _read(self):
             self.pack = self._io.read_bytes_full()
+
 
 
