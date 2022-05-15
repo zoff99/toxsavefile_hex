@@ -1,11 +1,15 @@
+doc: |
+  
+  Toxcore save file parser (wip)
+  
+  Copyright https://github.com/Green-Sky
+  
+
 meta:
   id: tox_save
   license: CC0-1.0
   ks-version: 0.9
   endian: le
-
-doc: |
-  Toxcore save file parser (wip)
 
 seq:
   - id: magic
