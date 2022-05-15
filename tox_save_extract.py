@@ -35,13 +35,18 @@ for state in save.states:
         if (type(state.data) != ToxSave.StateName):
             if state.type != ToxSave.StateType.groups:
                 binary_file.write(state.data.pack)
+            else:
+                binary_file.write(state._raw_data)
+                print(state.data.pack.num_array_elements)
+                print(state.data.pack.array_elements[0])
+                print(state.data.pack.array_elements[0].num_array_elements)
         else:
             binary_file.write(state._raw_data)
     binary_file.close()
 
     if state.type == ToxSave.StateType.groups:
         try:
-            unpacked_save = msgpack.unpackb(state.data.pack, raw=False)
+            unpacked_save = msgpack.unpackb(state._raw_data, raw=False)
             print(json.dumps(unpacked_save, default=json_serialiser, indent=2))
         except:
             print("Error with group unpacking")
