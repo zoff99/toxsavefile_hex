@@ -56,7 +56,10 @@ class Msgpack(KaitaiStruct):
             self.str_len_32 = self._io.read_u4be()
 
         if self.is_str:
-            self.str_value = (self._io.read_bytes(self.str_len)).decode(u"UTF-8")
+            try:
+                self.str_value = (self._io.read_bytes(self.str_len)).decode(u"UTF-8")
+            except:
+                self.str_value = ""
 
         if self.is_array_16:
             self.num_array_elements_16 = self._io.read_u2be()
