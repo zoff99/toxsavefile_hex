@@ -10,6 +10,11 @@ cd $_HOME_
 
 if [ "$1""x" == "buildx" ]; then
     docker build -t toxsavefile_analyser .
+elif [ "$1""x" == "manualx" ]; then
+    docker run -ti --rm \
+    -v "$_HOME_":/workspace \
+    toxsavefile_analyser \
+    /bin/sh -c "apk add bash >/dev/null 2>/dev/null; cd /workspace/ ; /bin/bash "
 elif [ "$1""x" == "insidex" ]; then
     echo "== now inside docker =="
     cd /workspace/ || exit 1
