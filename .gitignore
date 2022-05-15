@@ -1,2 +1,5 @@
 __pycache__
 tox_save.tox
+hexdiff
+hexdiff.c
+tox_save.groups.dat
