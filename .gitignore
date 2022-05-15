@@ -3,3 +3,4 @@ tox_save.tox
 hexdiff
 hexdiff.c
 tox_save.groups.dat
+tox_dump.*.dat
