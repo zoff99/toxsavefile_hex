@@ -33,7 +33,8 @@ for state in save.states:
         binary_file.write(state.data)
     else:
         if (type(state.data) != ToxSave.StateName):
-            binary_file.write(state.data.pack)
+            if state.type != ToxSave.StateType.groups:
+                binary_file.write(state.data.pack)
         else:
             binary_file.write(state._raw_data)
     binary_file.close()

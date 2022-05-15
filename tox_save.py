@@ -9,6 +9,7 @@ from enum import Enum
 if parse_version(kaitaistruct.__version__) < parse_version('0.9'):
     raise Exception("Incompatible Kaitai Struct Python API: 0.9 or later is required, but you have %s" % (kaitaistruct.__version__))
 
+import msgpack
 class ToxSave(KaitaiStruct):
     """
     Toxcore save file parser (wip)
@@ -92,7 +93,9 @@ class ToxSave(KaitaiStruct):
             self._read()
 
         def _read(self):
-            self.pack = self._io.read_bytes_full()
+            self._raw_pack = self._io.read_bytes_full()
+            _io__raw_pack = KaitaiStream(BytesIO(self._raw_pack))
+            self.pack = msgpack.Msgpack(_io__raw_pack)
 
 
 

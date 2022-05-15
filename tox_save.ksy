@@ -10,6 +10,8 @@ meta:
   license: GPL-3.0
   ks-version: 0.9
   endian: le
+  imports:
+    - /serialization/msgpack
 
 seq:
   - id: magic
@@ -45,6 +47,7 @@ types:
   state_groups:
     seq:
       - id: pack
+        type: msgpack
         size-eos: true
 
 enums:
