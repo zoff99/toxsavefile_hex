@@ -32,8 +32,9 @@ elif [ "$1""x" == "insidex" ]; then
     else
         python3 ./tox_save_extract.py
         res=$?
-        chmod -R a+rw ./__pycache__
-        chmod a+rw ./tox_save.groups.dat
+        chmod -R a+rw ./__pycache__ 2>/dev/null
+        chmod a+rw ./tox_save.groups.dat 2>/dev/null
+        chmod a+rw ./tox_dump*.dat 2>/dev/null
         exit $res
     fi
 else
