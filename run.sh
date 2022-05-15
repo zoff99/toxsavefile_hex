@@ -26,6 +26,10 @@ elif [ "$1""x" == "insidex" ]; then
         exit 3
     else
         python3 ./tox_save_extract.py
+        res=$?
+        chmod -R a+rw ./__pycache__
+        chmod a+rw ./tox_save.groups.dat
+        exit $res
     fi
 else
     docker run -ti --rm \
